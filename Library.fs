@@ -1,8 +1,8 @@
-﻿namespace MyPSModule
+namespace MyPSModule
 open System.Management.Automation
 open System.Management.Automation.Runspaces
 [<Cmdlet("Get", "Num")>]
-type GetFooCommand () =
+type GetNum () =
     inherit PSCmdlet ()
     [<Parameter>]
 
@@ -12,5 +12,3 @@ type GetFooCommand () =
         let intnum = x.num |> int
         x.WriteObject (7+intnum)
         base.EndProcessing ()
-        
-       
