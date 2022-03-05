@@ -9,7 +9,8 @@ type GetNum () =
 //        let message = "Enter Integer Value"
 //        x.WriteVerbose(message);
   
-    [<Parameter(Position=0)>] //allows the smd let to take input
+    [<Parameter(Position=0)>] //allows the cmdlet to take default input
+
                                // Positional parameter to allow cmdlet to take input without specifying the variable
     member val Num : string = "" with get, set
      
