@@ -1,23 +1,18 @@
 ﻿namespace MyPSModule
+
 open System.Management.Automation
 open System.Management.Automation.Runspaces
-
-[<Cmdlet("Add","Seven")>]  //cmdlet attribute declaration
-type GetNum () =
-    inherit PSCmdlet () //inheriting the PSCmdlet class
-//    override x.BeginProcessing () =
-//        let message = "Enter Integer Value"
-//        x.WriteVerbose(message);
-  
-    [<Parameter(Position=0)>] //allows the smd let to take input
-                               // Positional parameter to allow cmdlet to take input without specifying the variable
-    member val Num : string = "" with get, set
-     
-    override x.EndProcessing () =
-        let num=x.Num|>int // Typecasting String to Integer 
-        x.WriteObject (7+num)
-        base.EndProcessing ()
-    
-   
-        
-       
+// Cmdlet attribute declaration
+[<Cmdlet("Add", "Seven")>] 
+type GetNum() =
+     // Inheriting the PSCmdlet class
+    inherit PSCmdlet()
+    // Allows the cmdlet let to take default input
+    // Positional parameter to allow cmdlet to take input without specifying the variable
+    [<Parameter(Position = 0)>] 
+    member val Num : string = "" with get , set
+    override this.EndProcessing() =
+        // Typecasting String to Integer
+        let num = this.Num |> int 
+        this.WriteObject(7 + num)
+        base.EndProcessing()
