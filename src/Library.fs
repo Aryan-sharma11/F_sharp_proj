@@ -14,9 +14,10 @@ type GetNum () =
     member val Num : string = "" with get, set
      
     override x.EndProcessing () =
-        let num=x.Num|>int // Typecasting String to Integer 
-        x.WriteObject (7+num)
-        base.EndProcessing ()
+    let num=x.Num|>int // Typecasting String to Integer 
+    x.WriteObject (7+num)
+    base.EndProcessing ()
+    
     
    
         
