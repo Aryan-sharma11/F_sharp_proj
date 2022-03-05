@@ -6,14 +6,17 @@ open System.Management.Automation.Runspaces
 type GetNum () =
     inherit PSCmdlet () //inheriting the PSCmdlet class
   
-    [<Parameter(Position=0)>] //allows the cmdlet let to take default input
+    [<Parameter(Position=0)>] //allows the cmdlet to take default input
+
                                // Positional parameter to allow cmdlet to take input without specifying the variable
     member val Num : string = "" with get, set
      
     override this.EndProcessing () =
-        let num=this.Num |> int // Typecasting String to Integer 
-        this.WriteObject (7 + num) 
-        base.EndProcessing()
+    let num=this.Num |> int // Typecasting String to Integer 
+
+    this.WriteObject (7 + num)
+
+    base.EndProcessing ()
     
     
    
