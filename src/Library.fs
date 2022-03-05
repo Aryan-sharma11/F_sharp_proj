@@ -17,7 +17,8 @@ type GetNum () =
     override x.EndProcessing () =
     let num=x.Num |> int // Typecasting String to Integer 
 
-    x.WriteObject (7+num)
+    x.WriteObject (7 + num)
+
     base.EndProcessing ()
     
     
