@@ -8,8 +8,8 @@ type GetNum () =
     member val Num : string = "" with get, set
     
     override x.EndProcessing () =
-       
-        x.WriteObject (x.Num)
+       let num=x.Num|>int
+        x.WriteObject (7+num)
         base.EndProcessing ()
     
    // Get-Num value1 -Parameter2 value2
